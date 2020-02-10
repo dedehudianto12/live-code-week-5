@@ -1,145 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Comic Agung</title>
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
-      crossorigin="anonymous"
-    />
-  </head>
 
-  <body>
-    <div class="container" id="app">
-      <!-- Logout button and notification for success / error event -->
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Comic Agung</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
+</head>
+
+<body>
+  <div class="container" id="app">
+    <!-- Logout button and notification for success / error event -->
+    <div id="navbar">
       <div class="row my-3">
-        <button id="btn-logout" class="btn btn-primary ml-auto">Logout</button>
+        <button onclick="logOut()" id="btn-logout" class="btn btn-primary ml-auto">Logout</button>
       </div>
 
       <div id="alert" class="alert alert-warning alert-dismissible fade show" role="alert">
         Your notification goes here
       </div>
+    </div>
 
-      <!-- This is Login Form  -->
-      <div>
+
+    <!-- This is Login-Register Form  -->
+    <div id="login-register">
+      <div id="login">
         <h1>Login</h1>
         <form class="my-4">
           <div class="form-group">
             <label for="email">Email</label>
-            <input
-              type="email"
-              class="form-control"
-              name="email"
-              id="email"
-              required
-            />
+            <input type="email" class="form-control" name="email" id="email_login" required />
           </div>
           <div class="form-group">
             <label for="password">Password</label>
-            <input
-              type="password"
-              class="form-control"
-              name="password"
-              id="password"
-              required
-            />
+            <input type="password" class="form-control" name="password" id="password_login" required />
           </div>
-          <button type="submit" class="btn btn-primary">
+          <button id="login-form" type="submit" class="btn btn-primary">
             Submit
           </button>
-          <button type="submit" class="btn btn-info">
+          <button onclick="register()" type="button" class="btn btn-info">
             Register
           </button>
         </form>
       </div>
-
-      <div>
+      <div id="register">
         <h1>Register</h1>
         <form class="my-4">
           <div class="form-group">
             <label for="name">Name</label>
-            <input
-              type="name"
-              class="form-control"
-              name="name"
-              id="name"
-              required
-            />
+            <input type="name" class="form-control" name="name" id="name_register" required />
           </div>
           <div class="form-group">
             <label for="email">Email</label>
-            <input
-              type="email"
-              class="form-control"
-              name="email"
-              id="email"
-              required
-            />
+            <input type="email" class="form-control" name="email" id="email_register" required />
           </div>
           <div class="form-group">
             <label for="password">Password</label>
-            <input
-              type="password"
-              class="form-control"
-              name="password"
-              id="password"
-              required
-            />
+            <input type="password" class="form-control" name="password" id="password_register" required />
           </div>
-          <button type="submit" class="btn btn-primary">
+          <button id="register-form" type="submit" class="btn btn-primary">
             Submit
           </button>
-          <button type="submit" class="btn btn-warning">
+          <button id="random-register" type="submit" class="btn btn-warning">
             Random User
           </button>
-          <button type="submit" class="btn btn-info">
+          <button onclick="login()" type="button" class="btn btn-info">
             Login
           </button>
         </form>
-      <ist -->
-      <div>
-        <h1>Comic Collection</h1>
-        <div class="row my-4">
-          <!-- Each of comic will have one of this card -->
-          <div class="col-4 mb-4">
-            <div class="card text-center">
-              <img
-                src="https://www.idwpublishing.com/wp-content/uploads/2018/10/aHR0cDovL3d3dy5uZXdzYXJhbWEuY29tL2ltYWdlcy9pLzAwMC8yNDAvNzQ0L29yaWdpbmFsL1NwaWRlcm1hbjAxX2N2ckEuanBn.jpeg"
-                class="card-img-top">
-              <div class="card-body">
-                <h5 class="card-title">The Amazing Spiderman - new Avengers</h5>
-                <p class="card-text">Author: J Michael S</p>
-                <button class="btn btn-primary">Edit</button>
-              </div>
-            </div>
-          </div>
-        </div>
+      </div>
+    </div>
 
-      <!-- This is form page to update a comic -->
-      <div>
-        <h1>Update Comic</h1>
-        <form class="my-4">
-          <div class="form-group">
-            <label for="title">Title</label>
-            <input id="title" type="text" class="form-control" name="title" />
-          </div>
-          <div class="form-group">
-            <label for="author">Author</label>
-            <input type="text" class="form-control" name="author" />
-          </div>
-          <div class="form-group">
-            <label for="imageUrl">Comic Image URL</label>
-            <input type="text" class="form-control" name="imageUrl" />
-          </div>
-          <button id="btn-update" type="submit" class="btn btn-primary">
-            Submit
-          </button>
-        </form>
+    <!-- This content comic -->
+    <div id="comic">
+      <h1>Comic Collection</h1>
+      <div class="row my-4" id="content">
+        <!-- Each of comic will have one of this card -->
+      </div>
+    </div>
+
+    <!-- This is form page to update a comic -->
+    <div id="update">
+      <h1>Update Comic</h1>
+      <form class="my-4">
+        <div class="form-group">
+          <label for="title">Title</label>
+          <input id="title_update" type="text" class="form-control" name="title" />
+        </div>
+        <div class="form-group">
+          <label for="author">Author</label>
+          <input type="text" class="form-control" name="author" id="author_update" />
+        </div>
+        <div class="form-group">
+          <label for="imageUrl">Comic Image URL</label>
+          <input type="text" id="image_update" class="form-control" name="imageUrl" />
+        </div>
+        <button id="btn-update" type="submit" class="btn btn-primary">
+          Submit
+        </button>
+      </form>
       </di>
     </div>
-  </body>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+      integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script src="./main.js"></script>
+</body>
+
 </html>
